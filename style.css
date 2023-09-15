@@ -1,0 +1,45 @@
+#wrapper1 {
+    background-color: rgba(7, 57, 220, 0.817);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5em;
+}
+
+h1 {
+    font-size: 15vw;
+    color: azure;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}
+
+img {
+    display: flex;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+button {
+    font-size: 2.5vw;
+    background-color: rgb(150, 150, 231);
+    padding-left: 3em;
+    padding-right: 3em;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+}
+
+footer {
+    font-size: 2.5vw;
+    text-align: center;
+    background-color: #226BFC;
+    margin-top: 20%;
+    border: 3px solid black;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10%;
+}
+
+/* https://media.istockphoto.com/id/153086686/photo/space-warp-travel-trough-universe.webp?b=1&s=170667a&w=0&k=20&c=ssq8_CXdyAyzlHMu2SOY4If97T6ee8JEHcYDAOpYIKk= */
