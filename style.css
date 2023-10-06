@@ -1,9 +1,10 @@
 /* As of now, not responsive for smartphone. */
 
 .body {    
+    background-color: black;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif
 }
 
 #wrapper1, #wrapper2, #wrapper3, #wrapper4 {
@@ -169,25 +170,41 @@ footer {
     }
 }
     
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     #wrapper1, #wrapper2, #wrapper3, #wrapper4 {
-        padding: 0.5rem;
+        font-size: 5vw; 
     }
     
     .button {
-        font-size: 1vw;
+        font-size: 5vw;
     }
 
-    .col-container {
+    .table {
         flex-direction: column;
-        align-items: flex-start; 
+        align-items: center; 
+        width: 100vw;  
     }
 
     .grid-item {
-        font-size: 1.2vw; 
-        max-width: none; 
-        width: auto; 
+        font-size: 5vw; 
+        width: 80vw;  
     }
+
+    h1, h2, h3,
+    #header1,
+    #finalBoard,
+    #final,
+    .animate__animated.animate__bounce,
+    .answering input[type="text"],
+    .answering input[type="number"],
+    .scores > p {
+        font-size: 5vw;
+    }
+    
+    footer {
+        font-size: 4vw;
+    }
+
 }
 
 
