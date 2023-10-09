@@ -1,5 +1,10 @@
 // jeopardy plan https://docs.google.com/document/d/1c04c2d0jmkFQ-dfVAeHXimEf9s4ej6K3ss096c9ea_k/edit
 
+
+//! it doesn't change turns. it console.logs them, but doesn't display them
+//! I was trying to make it so that you can't see the question again.
+
+
 // Do not change the import statement
 import placeholderQuestions from "./placeholder-questions.js";
 console.log({ placeholderQuestions });
@@ -54,6 +59,8 @@ let guess=document.querySelector("#guess");
 let pass=document.querySelector("#pass");
 let next=document.querySelector("#next");
 
+let colContainer=document.querySelector("#colContainer");
+
 let questionDisplay1=document.querySelector("#questionDisplay1")
 //let questionDisplay2=document.querySelector("#questionDisplay2")
 
@@ -64,18 +71,20 @@ let currentAnswer1 = ""
 let currentQuestion2 = ""
 let currentAnswer2 = ""
 
-/* let player1Score=0;
-let player2Score=0; */
+let currentPlayer = "1"
+
+let player1Score=0;
+let player2Score=0; 
  
 natureCat1.forEach((nature, index)=>{
   nature.addEventListener("click",()=>{
     if (window.location.pathname === "/round-1.html") {
-    console.log(natureQ1[index].question)
-    console.log(natureQ1[index].answer)
-    currentQuestion1=natureQ1[index].question
-    currentAnswer1=natureQ1[index].answer
+    console.log(natureQ1[index].question);
+    console.log(natureQ1[index].answer);
+    currentQuestion1=natureQ1[index].question;
+    currentAnswer1=natureQ1[index].answer;
     questionDisplay1.textContent=currentQuestion1;
-    }
+    } 
   })
 });
 
@@ -141,7 +150,7 @@ generalCat1.forEach((general, index)=> {
   })
 })
 
-/* natureCat2.forEach((nature, index)=>{
+natureCat2.forEach((nature, index)=>{
   nature.addEventListener("click",()=>{
     if (window.location.pathname === "/round-2.html") {
     console.log(natureQ2[index].question)
@@ -213,7 +222,7 @@ generalCat2.forEach((general, index)=> {
     questionDisplay2.textContent=currentQuestion2;
     }
   })
-}) */
+})
 
 function enable() {
   document.querySelector("#guess").classList.remove("disabled");
@@ -264,16 +273,6 @@ questionDisplay1.addEventListener("console.log(currentQuestion1)", ()=>{
     alert("you pass")
   }) */
 
-guess.addEventListener("click", ()=>{
-    let userInput=document.querySelector("#userAnswer").value
-    if (userInput.toLowerCase()===currentAnswer1.toLowerCase()) {
-      correctAnswerSubmitted()
-    } else {
-      alert("incorrect answer")
-    }
-})
-
-
 
 
 pass.addEventListener("click", ()=>{
@@ -284,14 +283,30 @@ next.addEventListener("click", ()=>{
   alert("you go to the next round")
 })
 
-// turns for round 1
+guess.addEventListener("click", ()=>{
+  let userInput=document.querySelector("#userAnswer").value
+  if (userInput.toLowerCase()===currentAnswer1.toLowerCase()) {
+    correctAnswerSubmitted();
+    div.className = "gridItem";
+    //! I was trying to make it so that you can't see the question again.
+    //colContainer.appendChild();
+  } else if (userInput.toLowerCase()!=currentAnswer1.toLowerCase()) {
+    alert("Incorrect answer");
+    currentPlayer = currentPlayer === 2 ? 1 : 2;
+    console.log(currentPlayer);
+    alert(`Player ${currentPlayer}, it's your turn!`)
+  }
+})
+
 window.addEventListener("load", () => {
   if (window.location.pathname === "/round-1.html") {
-    document.querySelector("#turn").textContent = "Player 1's turn!";
+    document.querySelector("#turnRound1").textContent = `Player ${currentPlayer}'s turn!`; // turns
     enable();
-  } else {
-    document.querySelector("#turn").textContent = "Player 2's turn!";
+  } else if (window.location.pathname === "/round-2.html") {
+    document.querySelector("#turnRound2").textContent = `Player ${currentPlayer}'s turn!`; // turns
+    enable();
+  } else if (window.location.pathname === "/final-jeopardy.html") {
+    document.querySelector("#turnRound3").textContent = `Player ${currentPlayer}'s turn!`; // turns
     enable();
   }
 });
-

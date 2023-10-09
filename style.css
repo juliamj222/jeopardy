@@ -85,14 +85,14 @@ img {
     justify-content: center;
 }
 
-.col-container {
+.colContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0.5rem;
 }
 
-.grid-item {
+.gridItem {
     flex: 1;
     background-color: rgba(7, 57, 220, 0.817);
     color: rgb(190, 154, 39);
@@ -162,7 +162,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .grid-item {
+    .gridItem {
         font-size: 1vw;
         max-width: 100%;
     }
@@ -183,7 +183,7 @@ footer {
         width: 100vw;  
     }
 
-    .grid-item {
+    .gridItem {
         font-size: 5vw; 
         width: 80vw;  
     }
