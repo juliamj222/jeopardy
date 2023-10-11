@@ -207,9 +207,12 @@ footer {
 
 
 
-/* just an img that might be better than what i put https://media.istockphoto.com/id/153086686/photo/space-warp-travel-trough-universe.webp?b=1&s=170667a&w=0&k=20&c=ssq8_CXdyAyzlHMu2SOY4If97T6ee8JEHcYDAOpYIKk= */
-
 .disabled {
     pointer-events: none;
     opacity: 0.5;
 }
+
+.clicked {
+    pointer-events: none;
+    color: navy;
+  }

@@ -17,64 +17,64 @@
     <!-- Do not change the script source. Allows import/export to work. -->
     <script src="./scripts/index.js" type="module"></script>
   
-      <h2 id="turnRound1"></h2>
+      <h2 id="turnRound"></h2>
       <h2 class="animate__animated animate__bounce">Think carefully...</h2>
       <h3 id="questionDisplay1"></h3>
       <div class="table">
       <!-- the gridItems are in columns inside the colContainers. the containers rearrange in the smartphone version -->
         <div class="colContainer">
           <div class="gridItem" id="category-name">Nature</div>
-          <div class="gridItem nature">$100</div>
-          <div class="gridItem nature">$200</div>
-          <div class="gridItem nature">$300</div>
-          <div class="gridItem nature">$400</div>
-          <div class="gridItem nature">$500</div>
+          <div class="gridItem nature" value="100">100</div>
+          <div class="gridItem nature" value="200">200</div>
+          <div class="gridItem nature" value="300">300</div>
+          <div class="gridItem nature" value="400">400</div>
+          <div class="gridItem nature" value="500">500</div>
         </div>
         <div class="colContainer">
           <div class="gridItem" id="category-name">Animals</div>
-          <div class="gridItem animals">$100</div>
-          <div class="gridItem animals">$200</div>
-          <div class="gridItem animals">$300</div>
-          <div class="gridItem animals">$400</div>
-          <div class="gridItem animals">$500</div>
+          <div class="gridItem animals" value="100">100</div>
+          <div class="gridItem animals" value="200">200</div>
+          <div class="gridItem animals" value="300">300</div>
+          <div class="gridItem animals" value="400">400</div>
+          <div class="gridItem animals" value="500">500</div>
         </div>
         <div class="colContainer">
           <div class="gridItem" id="category-name">Computers</div>
-          <div class="gridItem computers">$100</div>
-          <div class="gridItem computers">$200</div>
-          <div class="gridItem computers">$300</div>
-          <div class="gridItem computers">$400</div>
-          <div class="gridItem computers">$500</div>
+          <div class="gridItem computers" value="100">100</div>
+          <div class="gridItem computers" value="200">200</div>
+          <div class="gridItem computers" value="300">300</div>
+          <div class="gridItem computers" value="400">400</div>
+          <div class="gridItem computers" value="500">500</div>
         </div>
         <div class="colContainer">
           <div class="gridItem" id="category-name">Mythology</div>
-          <div class="gridItem mythology">$100</div>
-          <div class="gridItem mythology">$200</div>
-          <div class="gridItem mythology">$300</div>
-          <div class="gridItem mythology">$400</div>
-          <div class="gridItem mythology">$500</div>
+          <div class="gridItem mythology" value="100">100</div>
+          <div class="gridItem mythology" value="200">200</div>
+          <div class="gridItem mythology" value="300">300</div>
+          <div class="gridItem mythology" value="400">400</div>
+          <div class="gridItem mythology" value="500">500</div>
         </div>
         <div class="colContainer">
           <div class="gridItem" id="category-name">History</div>
-          <div class="gridItem history">$100</div>
-          <div class="gridItem history">$200</div>
-          <div class="gridItem history">$300</div>
-          <div class="gridItem history">$400</div>
-          <div class="gridItem history">$500</div>
+          <div class="gridItem history" value="100">100</div>
+          <div class="gridItem history" value="200">200</div>
+          <div class="gridItem history" value="300">300</div>
+          <div class="gridItem history" value="400">400</div>
+          <div class="gridItem history" value="500">500</div>
         </div>
         <div class="colContainer">
           <div class="gridItem" id="category-name">General</div>
-          <div class="gridItem general">$100</div>
-          <div class="gridItem general">$200</div>
-          <div class="gridItem general">$300</div>
-          <div class="gridItem general">$400</div>
-          <div class="gridItem general">$500</div>
+          <div class="gridItem general" value="100">100</div>
+          <div class="gridItem general" value="200">200</div>
+          <div class="gridItem general" value="300">300</div>
+          <div class="gridItem general" value="400">400</div>
+          <div class="gridItem general" value="500">500</div>
         </div>
 
       </div>
 <!-- answering div. player inputs answer and chooses to guess or to pass  -->
 <div class="answering">
-  <input type="text" id="userAnswer" name="name">
+  <input type="text" id="userAnswer1" name="name">
 </div>
   <div class="buttons">
   <div class="button" id="guess" href=""> GUESS </div>
@@ -82,8 +82,8 @@
   </div>
 <!-- scores div. keeps track of the points -->
   <div class="scores">
-    <p>Player 1 - Score: 0</p>
-    <p>Player 2 - Score: 0</p>
+    <p id="player1Score">Player 1 - Score: 0</p>
+    <p id="player2Score">Player 2 - Score: 0</p>
 >  </div>
 <!-- button to take you to the second round, after all questions have been asked -->
 <a class="button" id="next" href="/round-2.html"> NEXT ROUND</a>
