@@ -1,7 +1,5 @@
 // jeopardy plan https://docs.google.com/document/d/1c04c2d0jmkFQ-dfVAeHXimEf9s4ej6K3ss096c9ea_k/edit
 
-//! I was trying to make it so that you can't see the question again.
-
 // Do not change the import statement
 import placeholderQuestions from "./placeholder-questions.js";
 console.log({ placeholderQuestions });
@@ -35,6 +33,7 @@ const generalQ2 = generalQ.slice(5, 10);
 const finalQ= placeholderQuestions.filter((placeholderQuestions)=> placeholderQuestions.category==="Final");
 console.log(finalQ);
 
+// Creating variables for every category of questions, for every round
 const natureCat1=document.querySelectorAll(".nature") 
 const animalCat1=document.querySelectorAll(".animals") 
 const computerCat1=document.querySelectorAll(".computers");
@@ -52,22 +51,17 @@ const generalCat2=document.querySelectorAll(".general");
 const finalCat=document.querySelectorAll(".final");
 
 // Fishing
+// Variables for guessing, passing and next
 let guess=document.querySelector("#guess");
 let pass=document.querySelector("#pass");
 let next=document.querySelector("#next");
 
-let colContainer=document.querySelector("#colContainer");
+// Variable that displays the questions and states the questions that will be displayed
+let questionDisplay1=document.querySelector(".questionDisplay1")
+let currentQuestion = ""
+let currentAnswer = ""
 
-let questionDisplay1=document.querySelector("#questionDisplay1")
-let questionDisplay2=document.querySelector("#questionDisplay2")
-
-
-let currentQuestion1 = ""
-let currentAnswer1 = ""
-
-let currentQuestion2 = ""
-let currentAnswer2 = ""
-
+// Variables that keep track of whose turn it is and their points
 let currentPlayer = 1;
 
 let pointAmount=0;
@@ -75,8 +69,7 @@ let pointAmount=0;
 let player1Score=0;
 let player2Score=0; 
 
-let hasGuessedOrPassed = false;
-
+// Loops so that questions from all categories are asked, selecting the rounds when they will be asked
 natureCat1.forEach((nature, index)=>{
   nature.addEventListener("click",()=>{
     console.log(nature.innerHTML)
@@ -84,9 +77,9 @@ natureCat1.forEach((nature, index)=>{
     if (window.location.pathname === "/round-1.html") {
     console.log(natureQ1[index].question);
     console.log(natureQ1[index].answer);
-    currentQuestion1=natureQ1[index].question;
-    currentAnswer1=natureQ1[index].answer;
-    questionDisplay1.textContent=currentQuestion1;
+    currentQuestion=natureQ1[index].question;
+    currentAnswer=natureQ1[index].answer;
+    questionDisplay1.textContent=currentQuestion;
     nature.classList.add("clicked");
     } 
   })
@@ -99,9 +92,9 @@ animalCat1.forEach((animal, index)=> {
     if (window.location.pathname === "/round-1.html") {
     console.log(animalQ1[index].question)
     console.log(animalQ1[index].answer)
-    currentQuestion1=animalQ1[index].question
-    currentAnswer1=animalQ1[index].answer
-    questionDisplay1.textContent=currentQuestion1;
+    currentQuestion=animalQ1[index].question
+    currentAnswer=animalQ1[index].answer
+    questionDisplay1.textContent=currentQuestion;
     animal.classList.add("clicked");
     }
   })
@@ -114,9 +107,9 @@ computerCat1.forEach((computers, index)=> {
     if (window.location.pathname === "/round-1.html") {
     console.log(computerQ1[index].question)
     console.log(computerQ1[index].answer)
-    currentQuestion1=computerQ1[index].question
-    currentAnswer1=computerQ1[index].answer
-    questionDisplay1.textContent=currentQuestion1;
+    currentQuestion=computerQ1[index].question
+    currentAnswer=computerQ1[index].answer
+    questionDisplay1.textContent=currentQuestion;
     computers.classList.add("clicked");
     }
   })
@@ -129,9 +122,9 @@ mythologyCat1.forEach((mythology, index)=> {
     if (window.location.pathname === "/round-1.html") {
     console.log(mythologyQ1[index].question)
     console.log(mythologyQ1[index].answer)
-    currentQuestion1=mythologyQ1[index].question
-    currentAnswer1=mythologyQ1[index].answer
-    questionDisplay1.textContent=currentQuestion1;
+    currentQuestion=mythologyQ1[index].question
+    currentAnswer=mythologyQ1[index].answer
+    questionDisplay1.textContent=currentQuestion;
     mythology.classList.add("clicked");
     }
   })
@@ -144,9 +137,9 @@ historyCat1.forEach((history, index)=> {
     if (window.location.pathname === "/round-1.html") {
     console.log(historyQ1[index].question)
     console.log(historyQ1[index].answer)
-    currentQuestion1=historyQ1[index].question
-    currentAnswer1=historyQ1[index].answer
-    questionDisplay1.textContent=currentQuestion1;
+    currentQuestion=historyQ1[index].question
+    currentAnswer=historyQ1[index].answer
+    questionDisplay1.textContent=currentQuestion;
     history.classList.add("clicked");
     }
   })
@@ -159,9 +152,9 @@ generalCat1.forEach((general, index)=> {
     if (window.location.pathname === "/round-1.html") {
     console.log(generalQ1[index].question)
     console.log(generalQ1[index].answer)
-    currentQuestion1=generalQ1[index].question
-    currentAnswer1=generalQ1[index].answer
-    questionDisplay1.textContent=currentQuestion1;
+    currentQuestion=generalQ1[index].question
+    currentAnswer=generalQ1[index].answer
+    questionDisplay1.textContent=currentQuestion;
     general.classList.add("clicked");
     }
   })
@@ -174,9 +167,9 @@ natureCat2.forEach((nature, index)=>{
     if (window.location.pathname === "/round-2.html") {
     console.log(natureQ2[index].question)
     console.log(natureQ2[index].answer)
-    currentQuestion2=natureQ2[index].question
-    currentAnswer2=natureQ2[index].answer
-    questionDisplay2.textContent=currentQuestion2;
+    currentQuestion=natureQ2[index].question
+    currentAnswer=natureQ2[index].answer
+    questionDisplay1.textContent=currentQuestion;
     nature.classList.add("clicked");
     }
   })
@@ -189,9 +182,9 @@ animalCat2.forEach((animal, index)=> {
     if (window.location.pathname === "/round-2.html") {
     console.log(animalQ2[index].question)
     console.log(animalQ2[index].answer)
-    currentQuestion2=animalQ2[index].question
-    currentAnswer2=animalQ2[index].answer
-    questionDisplay2.textContent=currentQuestion2;
+    currentQuestion=animalQ2[index].question
+    currentAnswer=animalQ2[index].answer
+    questionDisplay1.textContent=currentQuestion;
     animal.classList.add("clicked");
     }
   })
@@ -204,9 +197,9 @@ computerCat2.forEach((computers, index)=> {
     if (window.location.pathname === "/round-2.html") {
     console.log(computerQ2[index].question)
     console.log(computerQ2[index].answer)
-    currentQuestion2=computerQ2[index].question
-    currentAnswer2=computerQ2[index].answer
-    questionDisplay2.textContent=currentQuestion2;
+    currentQuestion=computerQ2[index].question
+    currentAnswer=computerQ2[index].answer
+    questionDisplay1.textContent=currentQuestion;
     computers.classList.add("clicked");
     }
   })
@@ -219,9 +212,9 @@ mythologyCat2.forEach((mythology, index)=> {
     if (window.location.pathname === "/round-2.html") {
     console.log(mythologyQ2[index].question)
     console.log(mythologyQ2[index].answer)
-    currentQuestion2=mythologyQ2[index].question
-    currentAnswer2=mythologyQ2[index].answer
-    questionDisplay2.textContent=currentQuestion2;
+    currentQuestion=mythologyQ2[index].question
+    currentAnswer=mythologyQ2[index].answer
+    questionDisplay1.textContent=currentQuestion;
     mythology.classList.add("clicked");
     }
   })
@@ -234,9 +227,9 @@ historyCat2.forEach((history, index)=> {
     if (window.location.pathname === "/round-2.html") {
     console.log(historyQ2[index].question)
     console.log(historyQ2[index].answer)
-    currentQuestion2=historyQ2[index].question
-    currentAnswer2=historyQ2[index].answer
-    questionDisplay2.textContent=currentQuestion2;
+    currentQuestion=historyQ2[index].question
+    currentAnswer=historyQ2[index].answer
+    questionDisplay1.textContent=currentQuestion;
     document.querySelector("#guess").classList.remove("disabled") ; 
     history.classList.add("clicked");
     }
@@ -250,18 +243,42 @@ generalCat2.forEach((general, index)=> {
     if (window.location.pathname === "/round-2.html") {
     console.log(generalQ2[index].question)
     console.log(generalQ2[index].answer)
-    currentQuestion2=generalQ2[index].question
-    currentAnswer2=generalQ2[index].answer
-    questionDisplay2.textContent=currentQuestion2;
+    currentQuestion=generalQ2[index].question
+    currentAnswer=generalQ2[index].answer
+    questionDisplay1.textContent=currentQuestion;
     general.classList.add("clicked");
     }
   })
 })
 
-function enable() {
+finalCat.forEach((final, index) => {
+  finalCategory(final, index);
+});
+
+function finalCategory(final, index) {
+  final.addEventListener("click", () => {
+    console.log(final.innerHTML);
+
+    if (window.location.pathname === "/final-jeopardy.html") {
+      console.log(finalQ.question);
+      console.log(finalQ.answer);
+      currentQuestion=finalQ.question
+      currentAnswer=finalQ.answer
+      var questionDisplay1 = document.getElementById("questionDisplay1");
+      if (questionDisplay1) {
+        questionDisplay1.textContent = currentQuestion;
+      }
+
+      final.classList.add("clicked");
+    }
+  });
+}
+
+// Functions to enable or disable buttons
+/* function enable() {
   document.querySelector("#guess").classList.remove("disabled");
   document.querySelector("#pass").classList.remove("disabled");
-}
+} */
 
 function disable() {
   document.querySelector("#guess").classList.add("disabled");
@@ -297,11 +314,7 @@ function takeAwayPoints() {
   else if (currentPlayer === 2) {player2Score=player2Score-pointAmount}
 }
 
-questionDisplay1.addEventListener("console.log(currentQuestion1)", ()=>{
-    alert("you pass")
-  })
-
-questionDisplay1.addEventListener("console.log(currentQuestion1)", ()=>{
+questionDisplay1.addEventListener("console.log(currentQuestion)", ()=>{
     alert("you pass")
   })
 
@@ -315,29 +328,13 @@ next.addEventListener("click", ()=>{
 })
 
 guess.addEventListener("click", ()=>{
-  let userInput1=document.querySelector("#userAnswer1").value
-  if (userInput1.toLowerCase()===currentAnswer1.toLowerCase()) {
+  let userInput1=document.querySelector(".userAnswer1").value
+  if (userInput1.toLowerCase()===currentAnswer.toLowerCase()) {
     addPoints();
     updateScoreDisplay();
 
     console.log(`Player1:${player1Score}, Player2:${player2Score}`); 
-  } else if (userInput1.toLowerCase()!=currentAnswer1.toLowerCase()) {
-    takeAwayPoints();
-    updateScoreDisplay();
-    console.log(`Player1:${player1Score}, Player2:${player2Score}`);
-   // alert("Incorrect answer");
-    changePlayers();
-  }
-})
-
-guess.addEventListener("click", ()=>{
-  let userInput2=document.querySelector("#userAnswer1").value
-  if (userInput2.toLowerCase()===currentAnswer2.toLowerCase()) {
-    addPoints();
-    updateScoreDisplay();
-
-    console.log(`Player1:${player1Score}, Player2:${player2Score}`); 
-  } else if (userInput2.toLowerCase()!=currentAnswer2.toLowerCase()) {
+  } else if (userInput1.toLowerCase()!=currentAnswer.toLowerCase()) {
     takeAwayPoints();
     updateScoreDisplay();
     console.log(`Player1:${player1Score}, Player2:${player2Score}`);
@@ -350,14 +347,11 @@ window.addEventListener("load", () => {
   if (window.location.pathname === "/round-1.html") {
     document.querySelector("#turnRound").textContent = `Player ${currentPlayer}'s turn!`; // turns
     updateScoreDisplay();
-    enable();
   } else if (window.location.pathname === "/round-2.html") {
     document.querySelector("#turnRound").textContent = `Player ${currentPlayer}'s turn!`; // turns
     updateScoreDisplay();
-    enable();
   } else if (window.location.pathname === "/final-jeopardy.html") {
     document.querySelector("#turnRound").textContent = `Player ${currentPlayer}'s turn!`; // turns
     updateScoreDisplay();
-    enable();
   }
 });
