@@ -30,8 +30,7 @@ const generalQ1 = generalQ.slice(0, 5);
 const generalQ2 = generalQ.slice(5, 10);
 
 // Final question
-const finalQ= placeholderQuestions.filter((placeholderQuestions)=> placeholderQuestions.category==="Final");
-console.log(finalQ);
+const finalQ= placeholderQuestions.find((placeholderQuestions)=> placeholderQuestions.category==="Final");
 
 // Creating variables for every category of questions, for every round
 const natureCat1=document.querySelectorAll(".nature") 
@@ -48,7 +47,8 @@ const mythologyCat2=document.querySelectorAll(".mythology");
 const historyCat2=document.querySelectorAll(".history");
 const generalCat2=document.querySelectorAll(".general");
 
-const finalCat=document.querySelectorAll(".final");
+/* const finalCat=Object.assign({}, finalQ);
+console.log(JSON.stringify(finalCat)) */
 
 // Fishing
 // Variables for guessing, passing and next
@@ -80,7 +80,8 @@ natureCat1.forEach((nature, index)=>{
     currentQuestion=natureQ1[index].question;
     currentAnswer=natureQ1[index].answer;
     questionDisplay1.textContent=currentQuestion;
-    nature.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     } 
   })
 });
@@ -96,6 +97,8 @@ animalCat1.forEach((animal, index)=> {
     currentAnswer=animalQ1[index].answer
     questionDisplay1.textContent=currentQuestion;
     animal.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 });
@@ -111,6 +114,8 @@ computerCat1.forEach((computers, index)=> {
     currentAnswer=computerQ1[index].answer
     questionDisplay1.textContent=currentQuestion;
     computers.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 })
@@ -126,6 +131,8 @@ mythologyCat1.forEach((mythology, index)=> {
     currentAnswer=mythologyQ1[index].answer
     questionDisplay1.textContent=currentQuestion;
     mythology.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 })
@@ -141,6 +148,8 @@ historyCat1.forEach((history, index)=> {
     currentAnswer=historyQ1[index].answer
     questionDisplay1.textContent=currentQuestion;
     history.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 })
@@ -156,6 +165,8 @@ generalCat1.forEach((general, index)=> {
     currentAnswer=generalQ1[index].answer
     questionDisplay1.textContent=currentQuestion;
     general.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 })
@@ -171,6 +182,8 @@ natureCat2.forEach((nature, index)=>{
     currentAnswer=natureQ2[index].answer
     questionDisplay1.textContent=currentQuestion;
     nature.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 });
@@ -186,6 +199,8 @@ animalCat2.forEach((animal, index)=> {
     currentAnswer=animalQ2[index].answer
     questionDisplay1.textContent=currentQuestion;
     animal.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 });
@@ -201,6 +216,8 @@ computerCat2.forEach((computers, index)=> {
     currentAnswer=computerQ2[index].answer
     questionDisplay1.textContent=currentQuestion;
     computers.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 })
@@ -216,6 +233,8 @@ mythologyCat2.forEach((mythology, index)=> {
     currentAnswer=mythologyQ2[index].answer
     questionDisplay1.textContent=currentQuestion;
     mythology.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 })
@@ -232,6 +251,8 @@ historyCat2.forEach((history, index)=> {
     questionDisplay1.textContent=currentQuestion;
     document.querySelector("#guess").classList.remove("disabled") ; 
     history.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 })
@@ -247,40 +268,49 @@ generalCat2.forEach((general, index)=> {
     currentAnswer=generalQ2[index].answer
     questionDisplay1.textContent=currentQuestion;
     general.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
     }
   })
 })
 
-finalCat.forEach((final, index) => {
+
+/* finalCat.forEach((final, index) => {
   finalCategory(final, index);
-});
+}); */
 
-function finalCategory(final, index) {
-  final.addEventListener("click", () => {
-    console.log(final.innerHTML);
+finalCategory()
 
-    if (window.location.pathname === "/final-jeopardy.html") {
-      console.log(finalQ.question);
-      console.log(finalQ.answer);
-      currentQuestion=finalQ.question
-      currentAnswer=finalQ.answer
-      var questionDisplay1 = document.getElementById("questionDisplay1");
-      if (questionDisplay1) {
-        questionDisplay1.textContent = currentQuestion;
-      }
 
-      final.classList.add("clicked");
-    }
-  });
+let finalBet=document.querySelector("#finalBet");
+
+
+function finalCategory() {
+  if (window.location.pathname === "/final-jeopardy.html") {
+    console.log(finalQ.question);
+    console.log(finalQ.answer);
+    currentQuestion = finalQ.question;
+    currentAnswer = finalQ.answer;
+    questionDisplay1.textContent = currentQuestion;
+        
+    const finalBetInput = document.getElementById("finalBet");
+    finalBetInput.addEventListener("input", function() {
+    pointAmount = parseInt(finalBet.innerHTML)
+    console.log(pointAmount)
+    });
+  }
 }
 
+/*   console.log(finalBet.innerHTML)
+  pointAmount=parseInt(finalBet.innerHTML) */
+
 // Functions to enable or disable buttons
-/* function enable() {
+function enablePassGuess() {
   document.querySelector("#guess").classList.remove("disabled");
   document.querySelector("#pass").classList.remove("disabled");
-} */
+}
 
-function disable() {
+function disablePassGuess() {
   document.querySelector("#guess").classList.add("disabled");
   document.querySelector("#pass").classList.add("disabled");
 }
@@ -290,33 +320,44 @@ function enableNextRound() {
 }
 
 function disableNextRound() {
-  document.querySelector("#next").classList.add("disabled");
+  document.querySelector("#next").next.classList.add("disabled");
+  };
+
+function disableOtherQuestions() {
+  const gridItems = document.querySelectorAll(".gridItem");
+  gridItems.forEach(function(gridItem) {
+    gridItem.classList.add("disabled");
+  });
 }
 
+function enableOtherQuestions() {
+  const gridItems = document.querySelectorAll(".gridItem");
+  gridItems.forEach(function(gridItem) {
+    gridItem.classList.remove("disabled");
+  });
+}
+
+// function to show the score
 function updateScoreDisplay() {
   document.querySelector("#player1Score").textContent = (`Player 1 - Score: ${player1Score}`);
   document.querySelector("#player2Score").textContent = (`Player 2 - Score: ${player2Score}`);
 }
-
+// function to change players
 function changePlayers() {
   currentPlayer = currentPlayer === 2 ? 1 : 2;
   console.log(currentPlayer);
   document.querySelector("#turnRound").textContent =(`Player ${currentPlayer}, It's your turn!`)
 }
-
+// function to add points
 function addPoints() {
   if (currentPlayer === 1) {player1Score=player1Score+pointAmount}
   else if (currentPlayer === 2) {player2Score=player2Score+pointAmount}
 }
-
+// function to take away points
 function takeAwayPoints() {
   if (currentPlayer === 1) {player1Score=player1Score-pointAmount}
   else if (currentPlayer === 2) {player2Score=player2Score-pointAmount}
 }
-
-questionDisplay1.addEventListener("console.log(currentQuestion)", ()=>{
-    alert("you pass")
-  })
 
 pass.addEventListener("click", ()=>{
   alert("you pass");
@@ -330,28 +371,30 @@ next.addEventListener("click", ()=>{
 guess.addEventListener("click", ()=>{
   let userInput1=document.querySelector(".userAnswer1").value
   if (userInput1.toLowerCase()===currentAnswer.toLowerCase()) {
-    addPoints();
-    updateScoreDisplay();
-
+    addPoints(); // if right, add points
+    enableOtherQuestions(); //enable other questions to choose from
+    updateScoreDisplay(); // display score
     console.log(`Player1:${player1Score}, Player2:${player2Score}`); 
   } else if (userInput1.toLowerCase()!=currentAnswer.toLowerCase()) {
-    takeAwayPoints();
-    updateScoreDisplay();
+    takeAwayPoints(); // if wrong, take away points
+    disableOtherQuestions();
+    updateScoreDisplay(); // display score
     console.log(`Player1:${player1Score}, Player2:${player2Score}`);
-   // alert("Incorrect answer");
-    changePlayers();
+    changePlayers(); // change players
   }
 })
 
 window.addEventListener("load", () => {
   if (window.location.pathname === "/round-1.html") {
     document.querySelector("#turnRound").textContent = `Player ${currentPlayer}'s turn!`; // turns
-    updateScoreDisplay();
+    updateScoreDisplay(); //updating the score after the turn
+    disablePassGuess();
   } else if (window.location.pathname === "/round-2.html") {
     document.querySelector("#turnRound").textContent = `Player ${currentPlayer}'s turn!`; // turns
-    updateScoreDisplay();
+    updateScoreDisplay(); //updating the score after the turn
   } else if (window.location.pathname === "/final-jeopardy.html") {
+    disableNextRound()
     document.querySelector("#turnRound").textContent = `Player ${currentPlayer}'s turn!`; // turns
-    updateScoreDisplay();
+    updateScoreDisplay(); //updating the score after the turn
   }
 });
