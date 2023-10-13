@@ -10,13 +10,20 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
     <title>Jeopardy Round 2</title>
-    <script src="./scripts/index.js" type="module"></script>
   </head>
   <body>
     <div id="wrapper3"> 
     <h1 id="header1">Second Round</h1>
     <!-- Do not change the script source. Allows import/export to work. -->
-    <script src="./scripts/index.js" type="module"></script>
+    <script src="./scripts/index2.js" type="module">
+      const url = window.location.href;
+      const searchParams= new URL(url).searchParams;
+      const entries= new URLSearchParams(searchParams).entries();
+      const array=Array.from(entries);
+      console.log(array);
+      const currentPlayer = parseInt(searchParams.get("currentPlayer"));
+      console.log(`currentPlayer: ${currentPlayer}`);
+    </script>
 
     <h2 id="turnRound"></h2>
     <h5 class="animate__animated animate__bounce">You're doing great!</h5>

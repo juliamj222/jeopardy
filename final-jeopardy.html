@@ -17,7 +17,17 @@
     <h1 id="header1">Final Round</h1>
     <h5 class="animate__animated animate__bounce">How much are you willing to bet?</h5>
     <!-- Do not change the script source. Allows import/export to work. -->
-    <script src="./scripts/index.js" type="module"></script>
+    <script src="./scripts/index3.js" type="module">
+
+const url = window.location.href;
+      const searchParams= new URL(url).searchParams;
+      const entries= new URLSearchParams(searchParams).entries();
+      const array=Array.from(entries);
+      console.log(array);
+      const currentPlayer = parseInt(searchParams.get("currentPlayer"));
+      console.log(`currentPlayer: ${currentPlayer}`);
+
+    </script>
   
     <h2 id="turnRound"></h2>
       
@@ -38,7 +48,6 @@
 <!-- button to submit your final answer and finish the game -->
 <div>
 <div class="button" id="guess" href=""> BET </div>
-<div class="button" id="pass" href=""> PASS </div>
 </div>
 <!-- scores div. keeps track of the points -->
 <div class="scores">
