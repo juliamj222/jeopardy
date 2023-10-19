@@ -1,9 +1,11 @@
+<!-- boilerplate -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- linking to css and js -->
     <link rel="stylesheet" href="style.css">
     <link
     rel="stylesheet"
@@ -13,11 +15,12 @@
   </head>
 
   <body>
+<!-- the wrapper contains all the divs -->
     <div id="wrapper4"> 
     <h1 id="header1">Final Round</h1>
     <h5 class="animate__animated animate__bounce">How much are you willing to bet?</h5>
-    <!-- Do not change the script source. Allows import/export to work. -->
-    <script src="./scripts/index3.js" type="module">
+<!-- Do not change the script source. Allows import/export to work. -->
+    <script src="./scripts/final-jeopardy.js" type="module">
 
 const url = window.location.href;
       const searchParams= new URL(url).searchParams;
@@ -28,21 +31,22 @@ const url = window.location.href;
       console.log(`currentPlayer: ${currentPlayer}`);
 
     </script>
-  
+<!-- h2 that shows whose turn it is -->
     <h2 id="turnRound"></h2>
       
     <div id="finalBoard">
       <header>FINAL CATEGORY</header>
       </div>
-  
+<!-- h3 that displays the question -->
     <div id="final" >
     <h3 class="questionDisplay1">FINAL QUESTION</h3>
     </div>
 
+<!-- answering div. player inputs answer -->
 <div class="answering">
-<input type="number" class="final" id="finalBet" >
+<input type="number" class="final" id="finalBet" > Your bet
 
-<input type="text" class="userAnswer1">
+<input type="text" class="userAnswer1"> Your answer
 </div>
 
 <!-- button to submit your final answer and finish the game -->

@@ -48,10 +48,14 @@ let pointAmount=0;
 let player1Score=0;
 let player2Score=0; 
 
+//variable to keep track of clicked questions
+let clickedQuestions = 0;
+
 // Loops so that questions from all categories are asked, selecting the rounds when they will be asked
 natureCat1.forEach((nature, index)=>{
   nature.addEventListener("click",()=>{
     console.log(nature.innerHTML)
+    clickedQuestions++;
     pointAmount=parseInt(nature.innerHTML)
     if (window.location.pathname === "/round-1.html") {
     console.log(natureQ1[index].question);
@@ -59,9 +63,10 @@ natureCat1.forEach((nature, index)=>{
     currentQuestion=natureQ1[index].question;
     currentAnswer=natureQ1[index].answer;
     questionDisplay1.textContent=currentQuestion;
+    nature.classList.add("clicked");
     disableOtherQuestions();
     enablePassGuess();
-    disableNextRound()
+    disableNextRound();
     } 
   })
 });
@@ -210,14 +215,32 @@ function takeAwayPoints() {
   else if (currentPlayer === 2) {player2Score=player2Score-pointAmount}
 }
 
-pass.addEventListener("click", ()=>{
-  alert("you pass");
-  changePlayers();
-})
+let passGuessCount=0;
+
+document.getElementById("pass").addEventListener("click", function () {
+  passGuessCount++;
+  if (passGuessCount ===1) {
+    changePlayers();
+  } else if 
+    (passGuessCount ===2) {
+      changePlayers();
+      passGuessCount =0;
+      enableOtherQuestions();
+      questionDisplay1.textContent=" ";
+      disablePassGuess();
+  }
+});
 
 let player1ScoreToPass;
 let player2ScoreToPass;
 let currentPlayerToPass;
+
+function enableNextIfAllQuestionsClicked() {
+  const totalQuestions = 2; 
+  if (clickedQuestions === totalQuestions) {
+    enableNextRound();
+  }
+}
 
 next.addEventListener("click", () => {
     // Passing the scores and the turn:
@@ -239,21 +262,43 @@ next.addEventListener("click", () => {
   })
 
 guess.addEventListener("click", ()=>{
+  passGuessCount++;
   let userInput1=document.querySelector(".userAnswer1").value
   if (userInput1.toLowerCase()===currentAnswer.toLowerCase()) {
     addPoints(); // if right, add points
     enableOtherQuestions(); //enable other questions to choose from
     updateScoreDisplay(); // display score
     console.log(`Player1:${player1Score}, Player2:${player2Score}`); 
-    enableNextRound();
+    enableNextIfAllQuestionsClicked()
     disablePassGuess();
-  } else if (userInput1.toLowerCase()!=currentAnswer.toLowerCase()) {
+  } else if (userInput1.toLowerCase()!=currentAnswer.toLowerCase() && passGuessCount ===2) {
+    takeAwayPoints(); // if wrong, take away points
+    updateScoreDisplay(); // display score
+    console.log(`Player1:${player1Score}, Player2:${player2Score}`);
+    changePlayers(); // change players
+    enableOtherQuestions();
+    questionDisplay1.textContent=" ";
+    disablePassGuess();
+    passGuessCount = 0;
+    enableNextIfAllQuestionsClicked()
+  }
+  
+  else if (userInput1.toLowerCase()!=currentAnswer.toLowerCase() && passGuessCount === 1) {
     takeAwayPoints(); // if wrong, take away points
     disableOtherQuestions();
     updateScoreDisplay(); // display score
     console.log(`Player1:${player1Score}, Player2:${player2Score}`);
     changePlayers(); // change players
-  }
+    enableNextIfAllQuestionsClicked()
+  } 
+
+  else if (userInput1.toLowerCase()!=currentAnswer.toLowerCase() && passGuessCount === 0) {
+    takeAwayPoints(); // if wrong, take away points
+    disableOtherQuestions();
+    updateScoreDisplay(); // display score
+    console.log(`Player1:${player1Score}, Player2:${player2Score}`);
+    changePlayers(); // change players
+  } 
 })
 
 window.addEventListener("load", () => {

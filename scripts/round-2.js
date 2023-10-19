@@ -229,10 +229,21 @@ function goToNextRound() {
   window.location.href = URL;
 }
 
-pass.addEventListener("click", ()=>{
-  alert("you pass");
-  changePlayers();
-})
+let passGuessCount=0;
+
+document.getElementById("pass").addEventListener("click", function () {
+  passGuessCount++;
+  if (passGuessCount ===1) {
+    changePlayers();
+  } else if 
+    (passGuessCount ===2) {
+      changePlayers();
+      passGuessCount =0;
+      enableOtherQuestions();
+      questionDisplay1.textContent=" ";
+      disablePassGuess();
+  }
+});
 
 let player1ScoreToPass;
 let player2ScoreToPass;
@@ -242,7 +253,9 @@ goToNextRound();
 alert("you go to the next round");
 })
 
+
 guess.addEventListener("click", ()=>{
+  passGuessCount++;
   let userInput1=document.querySelector(".userAnswer1").value
   if (userInput1.toLowerCase()===currentAnswer.toLowerCase()) {
     addPoints(); // if right, add points
@@ -251,13 +264,32 @@ guess.addEventListener("click", ()=>{
     console.log(`Player1:${player1Score}, Player2:${player2Score}`); 
     enableNextRound();
     disablePassGuess();
-  } else if (userInput1.toLowerCase()!=currentAnswer.toLowerCase()) {
+  } else if (userInput1.toLowerCase()!=currentAnswer.toLowerCase() && passGuessCount ===2) {
+    takeAwayPoints(); // if wrong, take away points
+    updateScoreDisplay(); // display score
+    console.log(`Player1:${player1Score}, Player2:${player2Score}`);
+    changePlayers(); // change players
+    enableOtherQuestions();
+    questionDisplay1.textContent=" ";
+    disablePassGuess();
+    passGuessCount = 0;
+  }
+  
+  else if (userInput1.toLowerCase()!=currentAnswer.toLowerCase() && passGuessCount === 1) {
     takeAwayPoints(); // if wrong, take away points
     disableOtherQuestions();
     updateScoreDisplay(); // display score
     console.log(`Player1:${player1Score}, Player2:${player2Score}`);
     changePlayers(); // change players
-  }
+  } 
+
+  else if (userInput1.toLowerCase()!=currentAnswer.toLowerCase() && passGuessCount === 0) {
+    takeAwayPoints(); // if wrong, take away points
+    disableOtherQuestions();
+    updateScoreDisplay(); // display score
+    console.log(`Player1:${player1Score}, Player2:${player2Score}`);
+    changePlayers(); // change players
+  } 
 })
 
 window.addEventListener("load", () => {
