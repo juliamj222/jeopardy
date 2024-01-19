@@ -6,8 +6,6 @@ Jeopardy! The great American quiz show has been a staple of network television s
 
 ## The Landing Page
 
-**Given** an `index.html` file exists.
-
 **When** the user visits the `index.html` file.
 
 **Then** they see the landing page.
