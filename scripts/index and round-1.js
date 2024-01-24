@@ -278,7 +278,8 @@ function enableNextIfAllQuestionsClicked() {
 
 next.addEventListener("click", () => {
   // Passing the scores and the turn:
-  const url = "http://127.0.0.1:5500/round-2.html?";
+  /* const url = "http://127.0.0.1:5500/round-2.html?"; */
+  const url = "https://juliamj222.github.io/jeopardy/round-2.html?";
   const searchParams = new URLSearchParams();
   searchParams.append("player1Score", player1Score);
   searchParams.append("player2Score", player2Score);
