@@ -1,5 +1,5 @@
 // import statement
-import placeholderQuestions from "placeholder-questions.js";
+import placeholderQuestions from "./placeholder-questions.js";
 console.log({ placeholderQuestions });
 
 // Questions imported in chunks of 5
