@@ -335,7 +335,7 @@ guess.addEventListener("click", () => {
 });
 
 window.addEventListener("load", () => {
-  if (window.location.pathname === "/round-1.html") {
+  if (window.location.pathname === "round-1.html") {
     document.querySelector(
       "#turnRound"
     ).textContent = `Player ${currentPlayer}'s turn!`; // turns
