@@ -5,110 +5,108 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- linking to css and js -->
-    <link rel="stylesheet" href="style.css">
+    <!-- linking to css and js -->
+    <link rel="stylesheet" href="style.css" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Jeopardy Round 2</title>
   </head>
   <body>
-<!-- the wrapper contains all the divs -->
-    <div id="wrapper3"> 
-    <h1 id="header1">Second Round</h1>
-<!-- Do not change the script source. Allows import/export to work. -->
-    <script src="./scripts/round-2.js" type="module">
-      const url = window.location.href;
-      const searchParams= new URL(url).searchParams;
-      const entries= new URLSearchParams(searchParams).entries();
-      const array=Array.from(entries);
-      console.log(array);
-      const currentPlayer = parseInt(searchParams.get("currentPlayer"));
-      console.log(`currentPlayer: ${currentPlayer}`);
-    </script>
-<!-- h2 that shows whose turn it is -->
-    <h2 id="turnRound"></h2>
-    <h5 class="animate__animated animate__bounce">You're doing great!</h5>
-<!-- h3 that displays the question -->
-    <h3 class="questionDisplay1"></h3>
+    <!-- the wrapper contains all the divs -->
+    <div id="wrapper3">
+      <h1 id="header1">Second Round</h1>
+      <!--  script source. Allows import/export to work. -->
+      <script src="./scripts/round-2.js" type="module">
+        const url = window.location.href;
+        const searchParams= new URL(url).searchParams;
+        const entries= new URLSearchParams(searchParams).entries();
+        const array=Array.from(entries);
+        console.log(array);
+        const currentPlayer = parseInt(searchParams.get("currentPlayer"));
+        console.log(`currentPlayer: ${currentPlayer}`);
+      </script>
+      <!-- h2 that shows whose turn it is -->
+      <h2 id="turnRound"></h2>
+      <h5 class="animate__animated animate__bounce">You're doing great!</h5>
+      <!-- h3 that displays the question -->
+      <h3 class="questionDisplay1"></h3>
 
-    <div class="table">
-<!-- the gridItems are in columns inside the colContainers. the containers rearrange in the smartphone version -->
-      <div class="colContainer">
-        <div class="gridItem" id="category-name">Nature</div>
-        <div class="gridItem nature" value="200">200</div>
-        <div class="gridItem nature" value="400">400</div>
-        <div class="gridItem nature" value="600">600</div>
-        <div class="gridItem nature" value="800">800</div>
-        <div class="gridItem nature" value="1000">1000</div>
+      <div class="table">
+        <!-- the gridItems are in columns inside the colContainers. the containers rearrange in the smartphone version -->
+        <div class="colContainer">
+          <div class="gridItem" id="category-name">Nature</div>
+          <div class="gridItem nature" value="200">200</div>
+          <div class="gridItem nature" value="400">400</div>
+          <div class="gridItem nature" value="600">600</div>
+          <div class="gridItem nature" value="800">800</div>
+          <div class="gridItem nature" value="1000">1000</div>
+        </div>
+
+        <div class="colContainer">
+          <div class="gridItem" id="category-name">Animals</div>
+          <div class="gridItem animals" value="200">200</div>
+          <div class="gridItem animals" value="400">400</div>
+          <div class="gridItem animals" value="600">600</div>
+          <div class="gridItem animals" value="800">800</div>
+          <div class="gridItem animals" value="1000">1000</div>
+        </div>
+
+        <div class="colContainer">
+          <div class="gridItem" id="category-name">Computers</div>
+          <div class="gridItem computers" value="200">200</div>
+          <div class="gridItem computers" value="400">400</div>
+          <div class="gridItem computers" value="600">600</div>
+          <div class="gridItem computers" value="800">800</div>
+          <div class="gridItem computers" value="1000">1000</div>
+        </div>
+
+        <div class="colContainer">
+          <div class="gridItem" id="category-name">Mythology</div>
+          <div class="gridItem mythology" value="200">200</div>
+          <div class="gridItem mythology" value="400">400</div>
+          <div class="gridItem mythology" value="600">600</div>
+          <div class="gridItem mythology" value="800">800</div>
+          <div class="gridItem mythology" value="1000">1000</div>
+        </div>
+
+        <div class="colContainer">
+          <div class="gridItem" id="category-name">History</div>
+          <div class="gridItem history" value="200">200</div>
+          <div class="gridItem history" value="400">400</div>
+          <div class="gridItem history" value="600">600</div>
+          <div class="gridItem history" value="800">800</div>
+          <div class="gridItem history" value="1000">1000</div>
+        </div>
+
+        <div class="colContainer">
+          <div class="gridItem" id="category-name">General</div>
+          <div class="gridItem general">200</div>
+          <div class="gridItem general">400</div>
+          <div class="gridItem general">600</div>
+          <div class="gridItem general">800</div>
+          <div class="gridItem general">1000</div>
+        </div>
+      </div>
+      <!-- answering div. player inputs answer and chooses to guess or to pass  -->
+      <div class="answering">
+        <input type="text" class="userAnswer1" name="name" />
+      </div>
+      <div class="buttons">
+        <div class="button" id="guess" href="">GUESS</div>
+        <div class="button" id="pass" href="">PASS</div>
       </div>
 
-      <div class="colContainer">
-        <div class="gridItem" id="category-name">Animals</div>
-        <div class="gridItem animals" value="200">200</div>
-        <div class="gridItem animals" value="400">400</div>
-        <div class="gridItem animals" value="600">600</div>
-        <div class="gridItem animals" value="800">800</div>
-        <div class="gridItem animals" value="1000">1000</div>
+      <!-- scores div. keeps track of the points -->
+      <div class="scores">
+        <p id="player1Score">Player 1 - Score: 0</p>
+        <p id="player2Score">Player 2 - Score: 0</p>
       </div>
+      <!-- button to take you to the final round, after all questions have been asked -->
+      <a class="button" id="next" href="/final-jeopardy.html"> NEXT ROUND</a>
 
-      <div class="colContainer">
-        <div class="gridItem" id="category-name">Computers</div>
-        <div class="gridItem computers" value="200">200</div>
-        <div class="gridItem computers" value="400">400</div>
-        <div class="gridItem computers" value="600">600</div>
-        <div class="gridItem computers" value="800">800</div>
-        <div class="gridItem computers" value="1000">1000</div>
-      </div>
-
-      <div class="colContainer">
-        <div class="gridItem" id="category-name">Mythology</div>
-        <div class="gridItem mythology" value="200">200</div>
-        <div class="gridItem mythology" value="400">400</div>
-        <div class="gridItem mythology" value="600">600</div>
-        <div class="gridItem mythology" value="800">800</div>
-        <div class="gridItem mythology" value="1000">1000</div>
-      </div>
-
-      <div class="colContainer">
-        <div class="gridItem" id="category-name">History</div>
-        <div class="gridItem history" value="200">200</div>
-        <div class="gridItem history" value="400">400</div>
-        <div class="gridItem history" value="600">600</div>
-        <div class="gridItem history" value="800">800</div>
-        <div class="gridItem history" value="1000">1000</div>
-      </div>
-
-      <div class="colContainer">
-        <div class="gridItem" id="category-name">General</div>
-        <div class="gridItem general">200</div>
-        <div class="gridItem general">400</div>
-        <div class="gridItem general">600</div>
-        <div class="gridItem general">800</div>
-        <div class="gridItem general">1000</div>
-      </div>
-
+      <footer>Jeopardy Copyright 2023</footer>
     </div>
-<!-- answering div. player inputs answer and chooses to guess or to pass  -->
-<div class="answering">
-  <input type="text" class="userAnswer1" name="name">
-</div>
-  <div class="buttons">
-  <div class="button" id="guess" href=""> GUESS </div>
-  <div class="button" id="pass" href=""> PASS </div>
-  </div>
-
-<!-- scores div. keeps track of the points -->
-<div class="scores">
-  <p id="player1Score">Player 1 - Score: 0</p>
-  <p id="player2Score">Player 2 - Score: 0</p>
-  </div>
-<!-- button to take you to the final round, after all questions have been asked -->
-<a class="button" id="next" href="/final-jeopardy.html"> NEXT ROUND</a>
-
-    <footer>Jeopardy Copyright 2023</footer>
-
-  </div>
   </body>
 </html>

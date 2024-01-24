@@ -1,13 +1,16 @@
-// Do not change the import statement
+// import statement
 import placeholderQuestions from "./placeholder-questions.js";
 console.log({ placeholderQuestions });
 
 // catching the URL parameters and their values
 const url = new URL(window.location.href);
 const searchParams = url.searchParams;
-let currentPlayer = parseInt(searchParams.get("currentPlayer"));
+
 let player1Score = parseInt(searchParams.get("player1Score"));
 let player2Score = parseInt(searchParams.get("player2Score"));
+
+// Determine the current player based on scores
+let currentPlayer = player1Score > player2Score ? 1 : 2;
 
 // Final question
 const finalQ = placeholderQuestions.find(
@@ -30,7 +33,6 @@ let currentAnswer = "";
 
 // Variables that keep track of whose turn it is and their points
 let pointAmount = 0;
-let passGuessCount = 0;
 
 // function to show the score
 function updateScoreDisplay() {
@@ -43,15 +45,6 @@ function updateScoreDisplay() {
 }
 
 updateScoreDisplay();
-
-// function to change players
-function changePlayers() {
-  currentPlayer = currentPlayer === 2 ? 1 : 2;
-  console.log(currentPlayer);
-  document.querySelector(
-    "#turnRound"
-  ).textContent = `Player ${currentPlayer}, It's your turn!`;
-}
 
 function finalCategory() {
   if (window.location.pathname === "/final-jeopardy.html") {
@@ -102,21 +95,16 @@ guess.addEventListener("click", () => {
     alert(
       "Congratulations! Your answer was right! You won the game! END OF THE GAME"
     );
-  } else if (
-    userInput1.toLowerCase() != currentAnswer.toLowerCase() &&
-    passGuessCount === 0
-  ) {
-    takeAwayPoints();
-    passGuessCount++;
-    updateScoreDisplay();
-    console.log(`Player1:${player1Score}, Player2:${player2Score}`);
-    changePlayers();
+    // Redirect to index.html
+    window.location.href = "index.html";
   } else if (userInput1.toLowerCase() != currentAnswer.toLowerCase()) {
     takeAwayPoints();
     updateScoreDisplay();
-    passGuessCount = 1;
+
     console.log(`Player1:${player1Score}, Player2:${player2Score}`);
     alert("Wrong answer! END OF THE GAME");
+    // Redirect to index.html
+    window.location.href = "index.html";
   }
 });
 

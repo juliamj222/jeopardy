@@ -5,27 +5,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- linking to css and js -->
-    <link rel="stylesheet" href="style.css">
+    <!-- linking to css and js -->
+    <link rel="stylesheet" href="style.css" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Jeopardy Round 1</title>
   </head>
   <body>
-<!-- the wrapper contains all the divs -->
-    <div id="wrapper2"> 
-    <h1 id="header1">First Round</h1>
-<!-- Do not change the script source. Allows import/export to work. -->
-    <script src="./scripts/index and round-1.js" type="module"></script>
-<!-- h2 that shows whose turn it is -->
+    <!-- the wrapper contains all the divs -->
+    <div id="wrapper2">
+      <h1 id="header1">First Round</h1>
+      <!--   script source. Allows import/export to work. -->
+      <script src="./scripts/index and round-1.js" type="module"></script>
+      <!-- h2 that shows whose turn it is -->
       <h2 id="turnRound"></h2>
       <h2 class="animate__animated animate__bounce">Think carefully...</h2>
-<!-- h3 that displays the question -->
+      <!-- h3 that displays the question -->
       <h3 class="questionDisplay1"></h3>
       <div class="table">
-      <!-- the gridItems are in columns inside the colContainers. the containers rearrange in the smartphone version -->
+        <!-- the gridItems are in columns inside the colContainers. the containers rearrange in the smartphone version -->
         <div class="colContainer">
           <div class="gridItem" id="category-name">Nature</div>
           <div class="gridItem nature" value="100">100</div>
@@ -74,28 +74,25 @@
           <div class="gridItem general" value="400">400</div>
           <div class="gridItem general" value="500">500</div>
         </div>
-
       </div>
-<!-- answering div. player inputs answer and chooses to guess or to pass  -->
-<div class="answering">
-  <input type="text" class="userAnswer1" name="name">
-</div>
-  <div class="buttons">
-  <div class="button" id="guess" href=""> GUESS </div>
-  <div class="button" id="pass" href=""> PASS </div>
-  </div>
-<!-- scores div. keeps track of the points -->
-  <div class="scores">
-    <p id="player1Score">Player 1 - Score: 0</p>
-    <p id="player2Score">Player 2 - Score: 0</p>
->  </div>
-<!-- button to take you to the second round, after all questions have been asked -->
-<a class="button" id="next" href="/round-2.html"> NEXT ROUND</a>
+      <!-- answering div. player inputs answer and chooses to guess or to pass  -->
+      <div class="answering">
+        <input type="text" class="userAnswer1" name="name" />
+      </div>
+      <div class="buttons">
+        <div class="button" id="guess" href="">GUESS</div>
+        <div class="button" id="pass" href="">PASS</div>
+      </div>
+      <!-- scores div. keeps track of the points -->
+      <div class="scores">
+        <p id="player1Score">Player 1 - Score: 0</p>
+        <p id="player2Score">Player 2 - Score: 0</p>
+        >
+      </div>
+      <!-- button to take you to the second round, after all questions have been asked -->
+      <a class="button" id="next" href="/round-2.html"> NEXT ROUND</a>
 
-      
       <footer>Jeopardy Copyright 2023</footer>
-      
-
     </div>
   </body>
 </html>

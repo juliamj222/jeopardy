@@ -1,4 +1,4 @@
-// Do not change the import statement
+//  import statement
 import placeholderQuestions from "./placeholder-questions.js";
 console.log({ placeholderQuestions });
 
@@ -293,11 +293,11 @@ player2ScoreToPass = player2Score;
 currentPlayerToPass = currentPlayer;
 
 function enableNextIfAllQuestionsClicked() {
-  const totalQuestions = 2;
+  const totalQuestions = 30;
   if (
     clickedQuestions === totalQuestions ||
-    player1ScoreToPass === 30000 ||
-    player2ScoreToPass === 30000
+    player1Score > 15000 ||
+    player2Score > 15000
   ) {
     enableNextRound();
   }
