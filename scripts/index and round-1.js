@@ -88,7 +88,7 @@ animalCat1.forEach((animal, index) => {
     console.log(animal.innerHTML);
     clickedQuestions++;
     pointAmount = parseInt(animal.innerHTML);
-    if (window.location.pathname === "round-1.html") {
+    if (window.location.pathname === "/round-1.html") {
       console.log(animalQ1[index].question);
       console.log(animalQ1[index].answer);
       currentQuestion = animalQ1[index].question;
