@@ -69,7 +69,10 @@ natureCat1.forEach((nature, index) => {
     console.log(nature.innerHTML);
     clickedQuestions++;
     pointAmount = parseInt(nature.innerHTML);
-    if (window.location.pathname === "/round-1.html") {
+    if (
+      window.location.pathname ===
+      "https://juliamj222.github.io/jeopardy/round-1.html"
+    ) {
       console.log(natureQ1[index].question);
       console.log(natureQ1[index].answer);
       currentQuestion = natureQ1[index].question;
