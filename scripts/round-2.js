@@ -243,7 +243,7 @@ function takeAwayPoints() {
 }
 
 // Function to pass scores and currentPlayer to the next round
-function goToNextRound() {
+/* function goToNextRound() {
   const url = "http://127.0.0.1:5500/final-jeopardy.html";
   const searchParams = new URLSearchParams();
   searchParams.append("player1Score", player1Score);
@@ -253,7 +253,7 @@ function goToNextRound() {
   const URL = `${url}?${queryString}`;
   console.log("Generated URL:", URL);
   window.location.href = URL;
-}
+} */
 
 let passGuessCount = 0;
 
@@ -293,7 +293,7 @@ function enableNextIfAllQuestionsClicked() {
 
 next.addEventListener("click", () => {
   // Passing the scores and the turn:
-  const url = "http://127.0.0.1:5500/final-jeopardy.html?";
+  const url = "https://juliamj222.github.io/jeopardy/final-jeopardy.html?";
   const searchParams = new URLSearchParams();
   searchParams.append("player1Score", player1Score);
   searchParams.append("player2Score", player2Score);
