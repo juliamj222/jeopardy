@@ -69,20 +69,20 @@ natureCat1.forEach((nature, index) => {
     console.log(nature.innerHTML);
     clickedQuestions++;
     pointAmount = parseInt(nature.innerHTML);
-    if (
+    /*  if (
       window.location.pathname ===
       "https://juliamj222.github.io/jeopardy/round-1.html"
-    ) {
-      console.log(natureQ1[index].question);
-      console.log(natureQ1[index].answer);
-      currentQuestion = natureQ1[index].question;
-      currentAnswer = natureQ1[index].answer;
-      questionDisplay1.textContent = currentQuestion;
-      nature.classList.add("clicked");
-      disableOtherQuestions();
-      enablePassGuess();
-      disableNextRound();
-    }
+    ) { */
+    console.log(natureQ1[index].question);
+    console.log(natureQ1[index].answer);
+    currentQuestion = natureQ1[index].question;
+    currentAnswer = natureQ1[index].answer;
+    questionDisplay1.textContent = currentQuestion;
+    nature.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
+    disableNextRound();
+    /*   } */
   });
 });
 
