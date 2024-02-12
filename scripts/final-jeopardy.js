@@ -57,7 +57,7 @@ function finalCategory() {
 /* we see the finalBetAmount, check if it's value is within the player's means  */
 finalBet.addEventListener("click", () => {
   let finalBetAmount = document.getElementById("finalBetAmount");
-  let pointAmount = finalBetAmount;
+  pointAmount = parseInt(finalBetAmount);
   if (currentPlayer === 1 && finalBetAmount.value <= player1Score) {
     console.log(finalBetAmount.value);
     finalCategory();
