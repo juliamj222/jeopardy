@@ -69,10 +69,6 @@ natureCat1.forEach((nature, index) => {
     console.log(nature.innerHTML);
     clickedQuestions++;
     pointAmount = parseInt(nature.innerHTML);
-    /*  if (
-      window.location.pathname ===
-      "https://juliamj222.github.io/jeopardy/round-1.html"
-    ) { */
     console.log(natureQ1[index].question);
     console.log(natureQ1[index].answer);
     currentQuestion = natureQ1[index].question;
@@ -82,7 +78,6 @@ natureCat1.forEach((nature, index) => {
     disableOtherQuestions();
     enablePassGuess();
     disableNextRound();
-    /*   } */
   });
 });
 
@@ -91,17 +86,15 @@ animalCat1.forEach((animal, index) => {
     console.log(animal.innerHTML);
     clickedQuestions++;
     pointAmount = parseInt(animal.innerHTML);
-    if (window.location.pathname === "round-1.html") {
-      console.log(animalQ1[index].question);
-      console.log(animalQ1[index].answer);
-      currentQuestion = animalQ1[index].question;
-      currentAnswer = animalQ1[index].answer;
-      questionDisplay1.textContent = currentQuestion;
-      animal.classList.add("clicked");
-      disableOtherQuestions();
-      enablePassGuess();
-      disableNextRound();
-    }
+    console.log(animalQ1[index].question);
+    console.log(animalQ1[index].answer);
+    currentQuestion = animalQ1[index].question;
+    currentAnswer = animalQ1[index].answer;
+    questionDisplay1.textContent = currentQuestion;
+    animal.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
+    disableNextRound();
   });
 });
 
@@ -110,17 +103,16 @@ computerCat1.forEach((computers, index) => {
     console.log(computers.innerHTML);
     clickedQuestions++;
     pointAmount = parseInt(computers.innerHTML);
-    if (window.location.pathname === "/round-1.html") {
-      console.log(computerQ1[index].question);
-      console.log(computerQ1[index].answer);
-      currentQuestion = computerQ1[index].question;
-      currentAnswer = computerQ1[index].answer;
-      questionDisplay1.textContent = currentQuestion;
-      computers.classList.add("clicked");
-      disableOtherQuestions();
-      enablePassGuess();
-      disableNextRound();
-    }
+
+    console.log(computerQ1[index].question);
+    console.log(computerQ1[index].answer);
+    currentQuestion = computerQ1[index].question;
+    currentAnswer = computerQ1[index].answer;
+    questionDisplay1.textContent = currentQuestion;
+    computers.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
+    disableNextRound();
   });
 });
 
@@ -129,17 +121,15 @@ mythologyCat1.forEach((mythology, index) => {
     console.log(mythology.innerHTML);
     clickedQuestions++;
     pointAmount = parseInt(mythology.innerHTML);
-    if (window.location.pathname === "/round-1.html") {
-      console.log(mythologyQ1[index].question);
-      console.log(mythologyQ1[index].answer);
-      currentQuestion = mythologyQ1[index].question;
-      currentAnswer = mythologyQ1[index].answer;
-      questionDisplay1.textContent = currentQuestion;
-      mythology.classList.add("clicked");
-      disableOtherQuestions();
-      enablePassGuess();
-      disableNextRound();
-    }
+    console.log(mythologyQ1[index].question);
+    console.log(mythologyQ1[index].answer);
+    currentQuestion = mythologyQ1[index].question;
+    currentAnswer = mythologyQ1[index].answer;
+    questionDisplay1.textContent = currentQuestion;
+    mythology.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
+    disableNextRound();
   });
 });
 
@@ -148,17 +138,15 @@ historyCat1.forEach((history, index) => {
     console.log(history.innerHTML);
     clickedQuestions++;
     pointAmount = parseInt(history.innerHTML);
-    if (window.location.pathname === "/round-1.html") {
-      console.log(historyQ1[index].question);
-      console.log(historyQ1[index].answer);
-      currentQuestion = historyQ1[index].question;
-      currentAnswer = historyQ1[index].answer;
-      questionDisplay1.textContent = currentQuestion;
-      history.classList.add("clicked");
-      disableOtherQuestions();
-      enablePassGuess();
-      disableNextRound();
-    }
+    console.log(historyQ1[index].question);
+    console.log(historyQ1[index].answer);
+    currentQuestion = historyQ1[index].question;
+    currentAnswer = historyQ1[index].answer;
+    questionDisplay1.textContent = currentQuestion;
+    history.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
+    disableNextRound();
   });
 });
 
@@ -167,17 +155,15 @@ generalCat1.forEach((general, index) => {
     console.log(general.innerHTML);
     clickedQuestions++;
     pointAmount = parseInt(general.innerHTML);
-    if (window.location.pathname === "/round-1.html") {
-      console.log(generalQ1[index].question);
-      console.log(generalQ1[index].answer);
-      currentQuestion = generalQ1[index].question;
-      currentAnswer = generalQ1[index].answer;
-      questionDisplay1.textContent = currentQuestion;
-      general.classList.add("clicked");
-      disableOtherQuestions();
-      enablePassGuess();
-      disableNextRound();
-    }
+    console.log(generalQ1[index].question);
+    console.log(generalQ1[index].answer);
+    currentQuestion = generalQ1[index].question;
+    currentAnswer = generalQ1[index].answer;
+    questionDisplay1.textContent = currentQuestion;
+    general.classList.add("clicked");
+    disableOtherQuestions();
+    enablePassGuess();
+    disableNextRound();
   });
 });
 
@@ -339,11 +325,9 @@ guess.addEventListener("click", () => {
 });
 
 window.addEventListener("load", () => {
-  if (window.location.pathname === "round-1.html") {
-    document.querySelector(
-      "#turnRound"
-    ).textContent = `Player ${currentPlayer}'s turn!`; // turns
-    updateScoreDisplay(); //updating the score after the turn
-    disableNextRound();
-  }
+  document.querySelector(
+    "#turnRound"
+  ).textContent = `Player ${currentPlayer}'s turn!`; // turns
+  updateScoreDisplay(); //updating the score after the turn
+  disableNextRound();
 });
