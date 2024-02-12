@@ -47,13 +47,11 @@ function updateScoreDisplay() {
 updateScoreDisplay();
 
 function finalCategory() {
-  if (window.location.pathname === "/final-jeopardy.html") {
-    console.log(finalQ.question);
-    console.log(finalQ.answer);
-    currentQuestion = finalQ.question;
-    currentAnswer = finalQ.answer;
-    questionDisplay1.textContent = currentQuestion;
-  }
+  console.log(finalQ.question);
+  console.log(finalQ.answer);
+  currentQuestion = finalQ.question;
+  currentAnswer = finalQ.answer;
+  questionDisplay1.textContent = currentQuestion;
 }
 
 /* we see the finalBetAmount, check if it's value is within the player's means  */
@@ -109,10 +107,8 @@ guess.addEventListener("click", () => {
 });
 
 window.addEventListener("load", () => {
-  if (window.location.pathname === "/final-jeopardy.html") {
-    document.querySelector(
-      "#turnRound"
-    ).textContent = `Player ${currentPlayer}'s turn!`; // turns
-    updateScoreDisplay(); //updating the score after the turn
-  }
+  document.querySelector(
+    "#turnRound"
+  ).textContent = `Player ${currentPlayer}'s turn!`; // turns
+  updateScoreDisplay(); //updating the score after the turn
 });
