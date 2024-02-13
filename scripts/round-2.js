@@ -243,17 +243,6 @@ function takeAwayPoints() {
 }
 
 // Function to pass scores and currentPlayer to the next round
-/* function goToNextRound() {
-  const url = "http://127.0.0.1:5500/final-jeopardy.html";
-  const searchParams = new URLSearchParams();
-  searchParams.append("player1Score", player1Score);
-  searchParams.append("player2Score", player2Score);
-  searchParams.append("currentPlayer", currentPlayer);
-  const queryString = searchParams.toString();
-  const URL = `${url}?${queryString}`;
-  console.log("Generated URL:", URL);
-  window.location.href = URL;
-} */
 
 let passGuessCount = 0;
 

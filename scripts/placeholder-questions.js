@@ -1,5 +1,3 @@
-// Do not change this code
-
 const placeholderQuestions = [
   {
     category: "Nature",
@@ -321,8 +319,9 @@ const placeholderQuestions = [
   },
   {
     category: "Final",
-    question: "What name was the bootcamp formerly known as?",
-    answer: "Burlington Code Academy",
+    question:
+      "A popular product was born when Jean Naigeon of this city substituted the juice of unripe grapes for vinegar.",
+    answer: "Dijon",
   },
 ];
 
